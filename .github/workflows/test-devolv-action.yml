@@ -34,7 +34,7 @@ jobs:
           tool: drift
           policy-name: DevolvTestPolicyHuge
           path: ./test-devolv-policy.json
-          approvers: RkSinghDeo, devolvdev
+          approvers: RkSinghDeo
           github-token: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Run Devolv Validate
