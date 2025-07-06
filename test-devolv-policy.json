@@ -5,7 +5,9 @@
       "Sid": "S3GetObj",
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource":"arn:aws:s3:::example-bucket/*"
+      "Resource": [
+        "arn:aws:s3:::example-bucket/*"
+      ]
     },
     {
       "Sid": "DynamoPut",
@@ -165,6 +167,23 @@
       "Action": "dynamodb:PutItem",
       "Resource": [
         "arn:aws:dynamodb:us-east-1:123456789012:table/Table"
+      ]
+    },
+    {
+      "Sid": "S3List",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": [
+        "arn:aws:s3:::example-bucket",
+        "arn:aws:s3:::example-bucket1"
+      ]
+    },
+    {
+      "Sid": "EC2Stop",
+      "Effect": "Allow",
+      "Action": "ec2:StopInstances",
+      "Resource": [
+        "arn:aws:ec2:us-east-1:123456789012:instance/*"
       ]
     }
   ]
