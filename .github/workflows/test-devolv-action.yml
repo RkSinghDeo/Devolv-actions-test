@@ -27,7 +27,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-
       - name: Run Devolv Drift
         uses: devolvdev/devolv-actions@v2
         with:
