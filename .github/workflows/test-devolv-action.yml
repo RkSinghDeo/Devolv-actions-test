@@ -1,0 +1,45 @@
+name: Devolv Action Test
+
+on:
+  push:
+    branches:
+      - main    # Adjust if you're using a different default branch
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+
+  test-devolv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+
+      - name: Run Devolv Drift
+        uses: devolvdev/devolv-actions@v2
+        with:
+          tool: drift
+          policy-name: DevolvTestPolicyHuge
+          path: ./test-devolv-policy.json
+          approvers: RkSinghDeo, devolvdev
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Run Devolv Validate
+        uses: devolvdev/devolv-actions@v2
+        with:
+          tool: validate
+          path: ./test-devolv-policy.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
