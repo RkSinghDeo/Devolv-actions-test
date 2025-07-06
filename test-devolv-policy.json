@@ -2,15 +2,6 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "S3List",
-      "Effect": "Allow",
-      "Action": "s3:ListBucket",
-      "Resource": [
-        "arn:aws:s3:::example-bucket",
-        "arn:aws:s3:::example-bucket1"
-      ]
-    },
-    {
       "Sid": "S3GetObj",
       "Effect": "Allow",
       "Action": "s3:GetObject",
