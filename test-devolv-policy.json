@@ -8,14 +8,6 @@
       "Resource":"arn:aws:s3:::example-bucket/*"
     },
     {
-      "Sid": "CloudWatchPut",
-      "Effect": "Allow",
-      "Action": "cloudwatch:PutMetricData",
-      "Resource": [
-        "*"
-      ]
-    },
-    {
       "Sid": "LogsCreateGroup",
       "Effect": "Allow",
       "Action": "logs:CreateLogGroup",
